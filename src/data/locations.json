@@ -1,0 +1,8 @@
+{
+  "locations": [
+    { "id": "AR-X", "country": "Argentina", "city": "Córdoba" },
+    { "id": "AR-N", "country": "Argentina", "city": "Posadas" },
+    { "id": "AR-B", "country": "Argentina", "city": "Buenos Aires" },
+    { "id": "UY-MO", "country": "Uruguay", "city": "Montevideo" }
+  ]
+}
