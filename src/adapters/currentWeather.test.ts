@@ -7,6 +7,7 @@ describe("Test CurrentWeather adapter", () => {
     expect(typeof currentWeather.main).toBe("string");
     expect(typeof currentWeather.description).toBe("string");
     expect(typeof currentWeather.icon).toBe("string");
+    expect(typeof currentWeather.location).toBe("string");
     expect(typeof currentWeather.temperature).toBe("object");
   });
 });

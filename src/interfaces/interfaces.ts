@@ -10,9 +10,10 @@ export interface Temperature {
   temp_max: number;
 }
 
-export interface CurrentWeather {
+export interface ICurrentWeather {
   main: string;
   description: string;
   icon: string;
+  location: string;
   temperature: Temperature;
 }
