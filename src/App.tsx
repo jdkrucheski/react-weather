@@ -10,6 +10,7 @@ export const App = () => {
   const [locations, setLocations] = useState<Location[]>();
   const [selectedLocations, setSelectedLocations] = useState<Location>();
   const [currentWeather, setCurrentWeather] = useState<ICurrentWeather>();
+  const [error, setError] = useState("");
 
   useEffect(() => {
     const locations = getLocationsAdapter(untypedLocations);
@@ -21,8 +22,7 @@ export const App = () => {
     selectedLocations &&
       getCurrentWeather(selectedLocations)
         .then((data) => setCurrentWeather(data))
-        // TODO: Create error handler
-        .catch((err) => console.log(err));
+        .catch((err) => setError(err.message));
   }, [selectedLocations]);
 
   const handleSelectedLocation = (selectedLocation: Location) => {
@@ -30,9 +30,19 @@ export const App = () => {
     console.log(selectedLocation);
   };
 
+  if (error !== "") {
+    return (
+      <div>
+        <span>Ocurrió un error: </span>
+        <span>
+          <b>{error}</b>
+        </span>
+      </div>
+    );
+  }
+
   return (
     <div className="App">
-      <span>Hello</span>
       {!!locations && selectedLocations && (
         <Selector
           selected={selectedLocations}
