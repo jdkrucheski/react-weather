@@ -2,10 +2,10 @@ import { fireEvent, render } from "@testing-library/react";
 import untypedLocations from "../../data/locations.json";
 import { Location } from "../../interfaces/interfaces";
 import { Selector } from "./Selector";
-import { getLocations } from "../../adapters/locationes";
+import { getLocationsAdapter } from "../../adapters/locationes";
 
 describe("Tests in location selector component", () => {
-  const locations = getLocations(untypedLocations);
+  const locations = getLocationsAdapter(untypedLocations);
   const handleSelect = (location: Location) => console.log(location);
   const { getAllByRole, getByText } = render(
     <Selector selected={locations[0]} options={locations} handleSelect={handleSelect} />

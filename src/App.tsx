@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { getLocations } from "./adapters/locationes";
+import { getLocationsAdapter } from "./adapters/locationes";
+import { CurrentWeather } from "./components/CurrentWeather/CurrentWeather";
 import { Selector } from "./components/Selector/Selector";
 import untypedLocations from "./data/locations.json";
 import { Location } from "./interfaces/interfaces";
@@ -9,7 +10,7 @@ export const App = () => {
   const [selectedLocations, setSelectedLocations] = useState<Location>();
 
   useEffect(() => {
-    const locations = getLocations(untypedLocations);
+    const locations = getLocationsAdapter(untypedLocations);
     setSelectedLocations(locations[0]);
     setLocations(locations);
   }, []);
@@ -29,6 +30,7 @@ export const App = () => {
           options={locations}
         />
       )}
+      <CurrentWeather />
     </div>
   );
 };
