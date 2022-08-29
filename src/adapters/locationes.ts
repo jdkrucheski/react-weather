@@ -1,6 +1,6 @@
-import { Locations } from "../interfaces/interfaces";
+import { Location } from "../interfaces/interfaces";
 
-export const getLocations = (untypedLocations: any) => {
-  const locations: Locations[] = untypedLocations.locations;
+export const getLocationsAdapter = (untypedLocations: any) => {
+  const locations: Location[] = untypedLocations.locations;
   return locations;
 };
