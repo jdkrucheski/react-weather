@@ -7,7 +7,7 @@ import { HomePage } from "./page/HomePage";
 const Router = () => {
   const { error } = useContext(AppContext);
   return (
-    <main className="page">{error === " " ? <ErrorPage error={error} /> : <HomePage />}</main>
+    <main className="page">{error !== " " ? <ErrorPage error={error} /> : <HomePage />}</main>
   );
 };
 
