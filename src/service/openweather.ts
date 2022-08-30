@@ -1,10 +1,12 @@
 import { getCurrentWeatherAdapter } from "../adapters/currentWeather";
+import { getForecastWeatherAdapter } from "../adapters/forecastWeather";
 import config from "../config";
 import { Location } from "../interfaces/interfaces";
 
 const WEATHER_KEY = config.api_key;
 const BASE_URL = "https://api.openweathermap.org";
 const CURRENT_WEATHER_URL = BASE_URL + "/data/2.5/weather?";
+const FORECAST_WEATHER_URL = BASE_URL + "/data/2.5/forecast?";
 
 export class NetworkError extends Error {
   constructor(message: string) {
@@ -38,6 +40,24 @@ export const getCurrentWeather = async ({ city, country }: Location) => {
     }
     const data = await response.json();
     const weather = getCurrentWeatherAdapter(data);
+    return weather;
+  } catch (error) {
+    if (error instanceof Error) {
+      throw new NetworkError(error.message);
+    }
+  }
+};
+
+export const getForecastWeather = async ({ city, country }: Location) => {
+  try {
+    const response = await fetch(
+      `${FORECAST_WEATHER_URL}q=${city},${country}&appid=${WEATHER_KEY}&units=metric&lang=es&cnt=5`
+    );
+    if (!response.ok) {
+      return handleError(response.status);
+    }
+    const data = await response.json();
+    const weather = getForecastWeatherAdapter(data);
     return weather;
   } catch (error) {
     if (error instanceof Error) {

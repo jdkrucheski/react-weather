@@ -1,15 +1,18 @@
 import { useEffect, useState } from "react";
 import { getLocationsAdapter } from "./adapters/locationes";
 import { CurrentWeather } from "./components/CurrentWeather/CurrentWeather";
+import { ForecastWeather } from "./components/ForecastWeather/ForecastWeather";
 import { Selector } from "./components/Selector/Selector";
 import untypedLocations from "./data/locations.json";
-import { ICurrentWeather, Location } from "./interfaces/interfaces";
-import { getCurrentWeather } from "./service/openweather";
+import { Weather, Location } from "./interfaces/interfaces";
+import { getCurrentWeather, getForecastWeather } from "./service/openweather";
 
 export const App = () => {
   const [locations, setLocations] = useState<Location[]>();
   const [selectedLocations, setSelectedLocations] = useState<Location>();
-  const [currentWeather, setCurrentWeather] = useState<ICurrentWeather>();
+  const [currentWeather, setCurrentWeather] = useState<Weather>();
+  const [forecastWeather, setForecastWeather] = useState<Weather[]>();
+
   const [error, setError] = useState("");
 
   useEffect(() => {
@@ -22,6 +25,10 @@ export const App = () => {
     selectedLocations &&
       getCurrentWeather(selectedLocations)
         .then((data) => setCurrentWeather(data))
+        .catch((err) => setError(err.message));
+    selectedLocations &&
+      getForecastWeather(selectedLocations)
+        .then((data) => setForecastWeather(data))
         .catch((err) => setError(err.message));
   }, [selectedLocations]);
 
@@ -51,6 +58,7 @@ export const App = () => {
         />
       )}
       {currentWeather && <CurrentWeather currentWeather={currentWeather} />}
+      {forecastWeather && <ForecastWeather forecastWeather={forecastWeather} />}
     </div>
   );
 };
