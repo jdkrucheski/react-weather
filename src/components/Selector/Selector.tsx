@@ -1,4 +1,5 @@
 import { Location } from "../../interfaces/interfaces";
+import "./selector.css";
 
 export interface Props {
   options: Location[];
@@ -14,15 +15,15 @@ export const Selector = ({ options, selected, handleSelect }: Props) => {
   };
 
   return (
-    <label>
-      Seleccione una ciudad:
-      <select value={selected?.id} onChange={handleChange}>
+    <section className="container container-selector">
+      <label>Seleccione ciudad:</label>
+      <select className="selector" value={selected?.id} onChange={handleChange}>
         {options.map((location) => (
           <option key={location.id} value={location.id}>
             {`${location.city} - ${location.country}`}
           </option>
         ))}
       </select>
-    </label>
+    </section>
   );
 };

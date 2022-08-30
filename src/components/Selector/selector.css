@@ -1,0 +1,10 @@
+.container-selector {
+  width: auto;
+}
+.selector {
+  margin-left: 4px;
+  color: #06113c;
+  background-color: #f7f5f2;
+  border-radius: 4px;
+  border: #06113c;
+}
