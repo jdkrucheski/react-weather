@@ -1,6 +1,6 @@
-import { ICurrentWeather } from "../interfaces/interfaces";
+import { Weather } from "../interfaces/interfaces";
 
-export const getCurrentWeatherAdapter = (untypedCurrentWeather: any): ICurrentWeather => {
+export const getCurrentWeatherAdapter = (untypedCurrentWeather: any): Weather => {
   return {
     main: untypedCurrentWeather.weather[0].main,
     description: untypedCurrentWeather.weather[0].description,

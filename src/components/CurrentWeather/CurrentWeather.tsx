@@ -1,7 +1,7 @@
-import { ICurrentWeather } from "../../interfaces/interfaces";
+import { Weather } from "../../interfaces/interfaces";
 
 export interface Props {
-  currentWeather: ICurrentWeather;
+  currentWeather: Weather;
 }
 
 export const CurrentWeather = ({ currentWeather }: Props) => {
