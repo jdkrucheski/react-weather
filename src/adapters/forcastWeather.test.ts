@@ -1,5 +1,4 @@
 import untypedForecastWeather from "../data/forecastWeather.json";
-import { getCurrentWeatherAdapter } from "./currentWeather";
 import { getForecastWeatherAdapter } from "./forecastWeather";
 
 describe("Test CurrentWeather adapter", () => {

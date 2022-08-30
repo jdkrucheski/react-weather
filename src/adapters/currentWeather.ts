@@ -10,6 +10,7 @@ export const getCurrentWeatherAdapter = (untypedCurrentWeather: any): Weather =>
       temp: untypedCurrentWeather.main.temp,
       temp_min: untypedCurrentWeather.main.temp_min,
       temp_max: untypedCurrentWeather.main.temp_max,
+      feels_like: untypedCurrentWeather.main.feels_like,
     },
   };
 };

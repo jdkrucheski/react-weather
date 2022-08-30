@@ -9,6 +9,7 @@ export const getForecastWeatherAdapter = (untypedCurrentWeather: any): Weather[]
       temp: weather.main.temp,
       temp_min: weather.main.temp_min,
       temp_max: weather.main.temp_max,
+      feels_like: weather.main.feels_like,
     },
   }));
   return forecast;
