@@ -23,8 +23,25 @@
 
 body {
   margin: 0;
+}
+.page {
+  width: inherit;
   display: flex;
+  padding: 10px;
+  flex-direction: column;
   place-items: center;
   min-width: 360px;
   min-height: 100vh;
+}
+
+.container {
+  width: 100%;
+  margin: 8px 0px;
+  padding: 8px;
+  background-color: #dfdfde;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
 }

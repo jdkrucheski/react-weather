@@ -1,15 +1,6 @@
-.container {
-  min-width: 300px;
-
-  margin: 8px;
-  padding: 12px;
-  background-color: #dfdfde;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.container-selector {
+  width: auto;
 }
-
 .selector {
   margin-left: 4px;
   color: #06113c;

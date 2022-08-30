@@ -2,35 +2,40 @@ import { useEffect, useState } from "react";
 import { Weather, Location } from "../interfaces/interfaces";
 import { getCurrentWeather, getForecastWeather } from "../service/openweather";
 
-export const useFetchWeather = (location: Location) => {
+const defaultLocations = { id: "AR-X", country: "Argentina", city: "Córdoba" };
+
+export const useFetchWeather = () => {
   const [currentWeather, setCurrentWeather] = useState<Weather>();
   const [forecastWeather, setForecastWeather] = useState<Weather[]>();
+  const [selectedLocations, setSelectedLocations] = useState<Location>(defaultLocations);
+
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
 
-  const getCurrent = async () => {
-    getCurrentWeather(location)
-      .then((data) => setCurrentWeather(data))
-      .catch((err) => setError(err.message));
-  };
-
-  const getForecast = async () => {
-    getForecastWeather(location)
-      .then((data) => setForecastWeather(data))
-      .catch((err) => setError(err.message));
-    setIsLoading(false);
+  const getWeather = () => {
+    const currentWeather = getCurrentWeather(selectedLocations);
+    const forecastWeather = getForecastWeather(selectedLocations);
+    Promise.all([currentWeather, forecastWeather])
+      .then((values) => {
+        setCurrentWeather(values[0]);
+        setForecastWeather(values[1]);
+      })
+      .catch((err) => setError(err.message))
+      .finally(() => setIsLoading(false));
   };
 
   useEffect(() => {
     setIsLoading(true);
-    getCurrent();
-    getForecast();
-  }, [location]);
+    getWeather();
+  }, [selectedLocations]);
 
   return {
     currentWeather,
+    error,
     forecastWeather,
     isLoading,
-    error,
+    selectedLocations,
+    setIsLoading,
+    setSelectedLocations,
   };
 };

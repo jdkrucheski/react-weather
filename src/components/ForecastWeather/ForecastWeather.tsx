@@ -6,7 +6,7 @@ export interface Props {
 }
 export const ForecastWeather = ({ forecastWeather }: Props) => {
   return (
-    <div className={styles.container}>
+    <div className="container">
       {forecastWeather.map((weather: Weather, index) => (
         <div key={index.toString()} className={styles.item}>
           <div className={styles.thirdContainer}>

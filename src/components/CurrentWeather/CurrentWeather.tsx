@@ -7,7 +7,7 @@ export interface Props {
 
 export const CurrentWeather = ({ currentWeather }: Props) => {
   return (
-    <div className={styles.container}>
+    <div className="container">
       <div className={styles.secondContainer}>
         <img
           src={`http://openweathermap.org/img/wn/${currentWeather.icon}@2x.png`}

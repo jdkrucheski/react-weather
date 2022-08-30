@@ -6,12 +6,17 @@ import { HomePage } from "./page/HomePage";
 
 const Router = () => {
   const { error } = useContext(AppContext);
-  return <>{error === " " ? <ErrorPage error={error} /> : <HomePage />}</>;
+  return (
+    <main className="page">{error === " " ? <ErrorPage error={error} /> : <HomePage />}</main>
+  );
 };
 
 export const App = () => {
   return (
     <AppProvider>
+      <header>
+        <h1>Pronóstico del tiempo</h1>
+      </header>
       <Router />
     </AppProvider>
   );

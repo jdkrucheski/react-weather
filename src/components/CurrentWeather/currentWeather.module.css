@@ -1,12 +1,3 @@
-.container {
-  min-width: 300px;
-
-  margin: 8px;
-  background-color: #dfdfde;
-  border-radius: 8px;
-  display: flex;
-}
-
 .secondContainer {
   display: flex;
   flex-direction: column;

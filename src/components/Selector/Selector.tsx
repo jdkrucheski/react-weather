@@ -15,8 +15,8 @@ export const Selector = ({ options, selected, handleSelect }: Props) => {
   };
 
   return (
-    <label className="container">
-      Seleccione ciudad:
+    <section className="container container-selector">
+      <label>Seleccione ciudad:</label>
       <select className="selector" value={selected?.id} onChange={handleChange}>
         {options.map((location) => (
           <option key={location.id} value={location.id}>
@@ -24,6 +24,6 @@ export const Selector = ({ options, selected, handleSelect }: Props) => {
           </option>
         ))}
       </select>
-    </label>
+    </section>
   );
 };
