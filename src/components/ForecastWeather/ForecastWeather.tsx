@@ -1,24 +1,28 @@
 import { Weather } from "../../interfaces/interfaces";
+import styles from "./forecastWeather.module.css";
 
 export interface Props {
   forecastWeather: Weather[];
 }
 export const ForecastWeather = ({ forecastWeather }: Props) => {
   return (
-    <ul>
+    <div className={styles.container}>
       {forecastWeather.map((weather: Weather, index) => (
-        <li key={index.toString()}>
-          <span>{weather.main}</span>
-          <br />
-          <span>{weather.description}</span>
-          <br />
-          <span>{JSON.stringify(weather.temperature)}</span>
-          <img
-            src={`http://openweathermap.org/img/wn/${weather.icon}@2x.png`}
-            alt="currentWeather.main"
-          />
-        </li>
+        <div key={index.toString()} className={styles.item}>
+          <div className={styles.thirdContainer}>
+            <img
+              src={`http://openweathermap.org/img/wn/${weather.icon}@2x.png`}
+              alt={weather.main}
+            />
+            <span>{weather.description}</span>
+            <span>
+              {`${Math.trunc(weather.temperature.temp_min)}º / ${Math.trunc(
+                weather.temperature.temp_max
+              )}º`}
+            </span>
+          </div>
+        </div>
       ))}
-    </ul>
+    </div>
   );
 };

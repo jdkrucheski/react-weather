@@ -1,4 +1,4 @@
-import { fireEvent, render } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import untypedLocations from "../../data/locations.json";
 import { Location } from "../../interfaces/interfaces";
 import { Selector } from "./Selector";
