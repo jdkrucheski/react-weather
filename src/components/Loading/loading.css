@@ -1,0 +1,24 @@
+.loader {
+  width: 40px;
+}
+
+.loaderPath {
+  fill: none;
+  stroke: #8d8daa;
+  stroke-width: 5px;
+  stroke-linecap: round;
+}
+
+.loaderPath {
+  stroke-dasharray: 10, 10;
+}
+
+.circularLoader {
+  animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
