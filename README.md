@@ -22,7 +22,7 @@ npm  install
 npm run dev
 ```
 
-For didactic reasons, the file .env.example include the API KEY of the service of Openweathermap. But this is not a goot practice. If you whatn use this aplication, get your own API KEY [here](https://openweathermap.org/api).
+For didactic reasons, the file .env.example includes the API KEY of the service of Openweathermap. But this is not a good practice. If you want use this application, get your own API KEY [here](https://openweathermap.org/api).
 
 ## Tests
 
